@@ -4,13 +4,14 @@ import models.game.GameStatisticsDisplay;
 public class Main {
     public static void main(String[] args) {
         Game context = new Game();
-        GameStatisticsDisplay display = new GameStatisticsDisplay(context); // Create the observer
+        GameStatisticsDisplay display = new GameStatisticsDisplay(context); // Observer
+
         while (!context.isGameOver()) {
-            context.nextTurn();  // Play through the current country's phases
+            context.nextTurn();
             if (context.isLastCountryInTurn()) {
-                context.startNewTurn();  // Move to the next turn
+                context.startNewTurn();
             } else {
-                context.moveToNextCountry();  // Move to the next country
+                context.moveToNextCountry();
             }
         }
         System.out.println("Game Over!");

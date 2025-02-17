@@ -32,7 +32,7 @@ public class Country {
     Expression addCastleIncome = new AddIncomeToBuildingExpression(castle);
 
     // Constructor is now private to enforce Factory Method usage
-    private Country(String name, ILeader leader, IEconomy economy, IMilitary military, List<IRegion> regions,CountryType type) {
+    public Country(String name, ILeader leader, IEconomy economy, IMilitary military, List<IRegion> regions,CountryType type) {
         this.name = name;
         this.leader = leader;
         this.economy = economy;
@@ -392,6 +392,11 @@ public class Country {
         } else {
             System.out.println("The region " + region.getName() + " is already controlled by " + getName() + ".");
         }
+    }
+
+
+    public void setLeader(ILeader leader) {
+        this.leader = leader;
     }
 
 
